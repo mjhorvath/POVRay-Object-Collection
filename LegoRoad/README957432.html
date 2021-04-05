@@ -1,0 +1,159 @@
+<html>
+<head>
+<script>
+  /************************************************************************************************************/
+  /*  Written by Chris Bartlett Sep 2007.                                                                     */
+  /*  This READMEnnnnnnnn.HTML file accompanies objects that are retrieved from the POV-Ray object collection */
+  /*  during a particular download (where the number nnnnnnnn identifies that particular download).           */
+  /*  It uses a corresponding 'Versionsnnnnnnnn.js' file to display a list of the objects retrieved during    */
+  /*  that download and provides a button to enable a user to check the server at http://lib.povray.org for   */
+  /*  more recent versions of those objects.                                                                  */
+  /************************************************************************************************************/
+  pagePath = location.pathname;
+  // To work properly, this page should be extracted from the zip file before being loaded into the browser.
+  // We check the path to see whether it looks like we're still inside the zip file so that we can tell the user 
+  // and avoid nasty looking errors (this won't work quite right if the user extracts the files into a directory
+  // whose name ends in 'zip').
+  if(pagePath.indexOf("zip/README")>=0 || pagePath.indexOf("zip\\README")>=0) pageInZip = 1;
+  else pageInZip = 0;
+  if (pageInZip) alert("To use this page to check for recent updates, unzip the contents of this zip file (into a directory whose name doesn't end in 'zip') and re-open this page.");
+  if (!pageInZip) { 
+    // Initialise arrays that will be populated from the 'Versionsnnnnnnnn.js' file.
+    Outcome        = new Array();
+    ObjectName     = new Array();
+    ContributorTag = new Array();
+    VersionNumber  = new Array();
+    SubmissionDate = new Array();
+  }
+</script>
+<script type="text/javascript" id=versionFile></script>
+<script>
+// Work out the name of the Verions file and load it.
+versionFileNumber = pagePath.substr(pagePath.indexOf("README")+6,6);
+if (!pageInZip) { 
+  document.getElementById("versionFile").src="Versions"+versionFileNumber+".js";
+} 
+</script>
+</head>
+
+<body style="font-family:Arial">
+<h2>README.html for POV-Ray Object Collection</h2>
+<table border=0>
+  <tr><td>
+    You have downloaded files from the POV-Ray Object Collection at <a href="http://lib.povray.org/">http://lib.povray.org/</a> 
+    which provides a free repository of objects compatible with the free <a href="http://www.povray.org/">POV-Ray Raytracing software</a>.
+    The objects in this collection are licensed under the terms of the <a href="http://creativecommons.org/licenses/LGPL/2.1/">Creative 
+    Commons - Lesser General Public License</a> 
+    (<a href="http://creativecommons.org/licenses/LGPL/2.1/">CC-GNU LGPL</a>) to permit you to freely use, modify and redistribute those 
+    files subject to the terms of this license.  
+    Use of these files implies agreement to the terms of this license.
+    You may use images that you generate using these files without restriction.
+  </td><td>
+    <!-- Creative Commons License -->
+    <a href="http://creativecommons.org/licenses/LGPL/2.1/" target="licenseWindow">
+    <script>
+      // If this page is still in the zip file then we can't access the graphics
+      if (!pageInZip) document.write('<img alt="CC-GNU LGPL" border="0" src="cc-LGPL-a.png" />');
+      else document.write("CC_GNU LGPL");
+    </script>
+    <!-- /Creative Commons License -->
+  </td></tr> 
+</table>
+
+<p>
+The downloaded files should include a file called 
+'Versions<script>document.write(versionFileNumber);</script>.js'
+listing the objects you downloaded and their version numbers. If you have downloaded more than one set of objects you should have more than one 'README' file and a 'Versions' file for each one. The text in each of the README files is likely to be pretty much the same except for the table at the bottom which lists the files that you received during that particular download.
+<p>
+To use downloaded files you will need to extract them from the zip file and it is recommended that you load them into a directory that is defined as a Lbrary_Patch within your POVRAY.INI file. The POVRAY.INI file can be found in your <b>'POVRay Install Directory/renderer'</b> directory e.g. 'C:\Program Files\POV-Ray for Windows v3.6\renderer'. To add a directory to your library path: 
+<ul>
+  <li>If setting up a new directory for this purpose, create the directory e.g. you could create an 'ObjectCollection' directory within your 'C:\Program Files\POV-Ray for Windows v3.6\INCLUDE\' directory.
+  <li>Open POVRAY.INI in a text editor and add a new line to the bottom of the file containing the new Library_Path definition e.g. 
+'Library_Path="C:\Program Files\POV-Ray for Windows v3.6\INCLUDE\ObjectCollection"'
+</ul>
+<b>Note.</b>There is a limit on the number of Library_Path directories that can be defined in POVRAY.INI (a maximum of 20 in V3.6). Naming standards have been implemented in the collection to avoid naming conflicts so that you can store standardised files in a single directory. Some files are marked in the system as non-compliant. If you decide to download non-compliant files you may need to separate them from other downloaded files to avoid naming conflicts (see 'Non-Standard Files' below).
+<br>
+<hr>
+
+<h3>Versioning</h3>
+Different versions of the objects that you download could be recorded on the POV-Ray collection website from time to time and you can download a different version of an object to replace the one you currently have. Each object definition can contain multiple files, but 'standard' contribution files will be prefixed by the name of the contribution e.g. All of the files associated with the 'Netball' object are prefixed with the name 'Netball'. Two versions of the same object can't coexist in the same directory, so you will generally want to remove any existing files with the same prefix before extracting the new files from the zip archive. 
+<p>
+However, there may be times when you are uncertain about whether you wish to replace the version you are currently using. The naming conventions are intended to help reduce the amount of rework you need to do when downloading a new version of an object, but there could always be differences that make it difficult for you to use an alternative version of an object. If you have retained the original zip archive you can always reverse the version update by deleting the new files and extracting a copy of the previous version. Otherwise you may wish to take a backup copy of your current copy of the object before deleting it.
+<p>
+Older versions of objects are also likely to continue to be available from the website, but this cannot be guaranteed as cleanup operations could result in older versions being removed from time to time.
+<hr>
+
+<h3>Non-Standard Files</h3>
+The POV-Ray object collection contains some contributions that do not comply with the naming standards. These are normally identified as such on the database and are, byt default, selected out when you perform a search. You can choose to include non-compliant files in the search results by selecting the checkbox marked 'Search for both standards compliant and non-compliant files' in the 'Standards Compliance' section of the search criteria panel, however, it is then up to you to check for naming conflicts.
+<p>
+Because it is possible for the file, variable and function names used by non-compliant contributions to conflict with names used by standards-compliant contributions, these files should not be stored in the same location as standards-compliant files and cannot be downloaded in the same archive as standards-compliant files.
+<p>
+
+<hr>
+
+<h3>Issues and support</h3>
+Although there is no guaranteed support for any of the objects in the POV-Ray Collection, there is a very strong POV-Ray community where you can usually get help on all aspects of POV-Ray. The full list of newsgroups is shown at <a href="http://news.povray.org/">http://news.povray.org/</a>. Most people start with the following newsgroups:
+<ul>
+  <li><a href="http://news.povray.org/povray.object-collection/"><b>povray.object-collection</b></a> - For questions relating specifically to objects from this collection
+  <li><a href="http://news.povray.org/general/">povray.general</a>
+  <li><a href="http://news.povray.org/newusers/">povray.newusers</a>
+</ul>
+<p>
+To provide feedback on a particular object in the collection you can use the 'Provide Feedback' link against that object in the search results page. Note. You will need to register and log-on as a member otherwise you won't see the link (Registration normally takes about 5 minutes and requires you to have an email address). 
+<p>
+You may also contact the collection managers directly by email. Typically this would be to highlight issues with the website or to draw attention to incorrectly indexed objects or inappropriate contributions (e.g. abusive text or contributions that may cause offense). The email address at the time you downloaded this file was <a href="mailto:spamcatcher@nospam.com" onclick='this.href="mailto:libadmin@povray.org"'>libadmin-AT-povray.org</a>(replace '-AT-' with '@'). Note. This email address may need to be revised from time to time to avoid issues with spam. You should find the current contact details at 
+<a href="http://lib.povray.org/usersguide/03feedback.html">http://lib.povray.org/usersguide/03feedback.html</a>.
+<hr>
+
+<h3>Contributing Objects or Updates to Objects</h3>
+You can contribute to the POV-Ray collection through the web site. To do this you need to be registered (takes about 5 minutes). Once registered you can upload work provided that you:
+<ul>
+  <li>Can testify that you have the necessary rights over the files you wish to submit
+  <li>Understand the licensing conditions of the POV-Ray Object Collection 
+  <li>Are willing to grant a license in perpetuity to use those files under the terms of the license
+</ul>
+Full details are contained in the '<a href="http://lib.povray.org/usersguide/04contributing.html">Contributing to the Collection</a>' section of the users guide. 
+The licensing conditions are intended to encourage the community to build upon earlier contributions over time.
+<p>
+<hr>
+
+<script>
+if (!pageInZip) { 
+  document.write('<form action="http://lib.povray.org/searchcollection/index.php" method=post name=test target="versioncheckwindow">');
+  document.write('  <input name=process              value=Y                               type=hidden>');
+  document.write('  <input name=exec                 value=A                               type=hidden>');
+  document.write('  <input name=downloadDateTime     value="'+DownloadDateTime+'"          type=hidden>');
+  document.write('  <input name=contributionNameList value="'+ObjectName+'"     type=hidden>');
+  document.write('  <input name=contributorTagList   value="'+ContributorTag+'" type=hidden>');
+  document.write('  <input name=versionNumberList    value="'+VersionNumber+'"  type=hidden>');
+  document.write('  <input name=submissionDateList   value="'+SubmissionDate+'"  type=hidden>');
+  document.write('  <h3>Objects Downloaded: '+DownloadDateTime+'&nbsp;&nbsp;&nbsp;');
+  document.write('    <input type=submit               value="Check Server for Updates">');
+  document.write('  </h3>');
+  document.write('</form>');
+  // Write the table header including a button to submit a request to the server to check for updates.
+  document.write("<table border=1>");
+  document.write("<tr><td>&nbsp;</td><td>Object Name</td><td>Contributor</td><td>Version Number</td><td>Submission Date</td></tr>");
+  // Write the version records into the table
+  for (I=0;I<Outcome.length;I++) {
+    document.write ('<tr>');
+    document.write ('<td>'+Outcome[I]+'</td>');
+    document.write ('<td>'+ObjectName[I]+'</td>');
+    document.write ('<td>'+ContributorTag[I]+'</td>');
+    document.write ('<td>'+VersionNumber[I]+'</td>');
+    document.write ('<td>'+SubmissionDate[I]+'</td>');
+    document.write ('</tr>');
+  }
+  document.write("</table>");
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
