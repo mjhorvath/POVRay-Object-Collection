@@ -637,13 +637,13 @@ sky_sphere
 											#local SetPigColor = VRand(SSys_M1) * GradeMargin + VRand(SSys_M1) * GradeDiff;
 //											#local SetPigColor = VRand(SSys_M1) * GradeMargin / 2 + GradeMargin / 2;
 //											#local SetPigColor = VRand(SSys_M1);
-											[GradePos color rgbt SetPigColor]
+											[GradePos color srgbt SetPigColor]
 										#break
 										#case (1)
-											[GradeCount/GradeMax color rgbt VRand(SSys_M1)]
+											[GradeCount/GradeMax color srgbt VRand(SSys_M1)]
 										#break
 										#case (2)
-											[GradeCount/GradeMax color rgbt VRand(SSys_M1) * GradeMargin + GradeDiff]
+											[GradeCount/GradeMax color srgbt VRand(SSys_M1) * GradeMargin + GradeDiff]
 										#break
 									#end
 									#local GradePos = rand(SSys_M1) * (1 - GradePos) + GradePos;
@@ -847,16 +847,16 @@ sky_sphere
 										#case (0)
 //											#local GradeMargin = rand(SSys_M1);
 //											#local GradeDiff = 1 - GradeMargin;
-//											[GradePos color rgbt VRand(SSys_M1) * GradeMargin / 2 + VRand(SSys_M1) * GradeDiff / 2 + (GradeMargin + GradeDiff) / 2 + <0,0,0,rand(SSys_M1)>]
-											[GradePos color rgbt VRand4D(SSys_M1) * GradeMargin + VRand4D(SSys_M1) * GradeDiff + <0,0,0,rand(SSys_M1)>]
-//											[GradePos color rgbt VRand(SSys_M1) * GradeMargin / 2 + GradeMargin / 2 + <0,0,0,rand(SSys_M1)>]
-//											[GradePos color rgbt VRand4D(SSys_M1)]
+//											[GradePos color srgbt VRand(SSys_M1) * GradeMargin / 2 + VRand(SSys_M1) * GradeDiff / 2 + (GradeMargin + GradeDiff) / 2 + <0,0,0,rand(SSys_M1)>]
+											[GradePos color srgbt VRand4D(SSys_M1) * GradeMargin + VRand4D(SSys_M1) * GradeDiff + <0,0,0,rand(SSys_M1)>]
+//											[GradePos color srgbt VRand(SSys_M1) * GradeMargin / 2 + GradeMargin / 2 + <0,0,0,rand(SSys_M1)>]
+//											[GradePos color srgbt VRand4D(SSys_M1)]
 										#break
 										#case (1)
-											[GradeCount/GradeMax color rgbt VRand4D(SSys_M1)]
+											[GradeCount/GradeMax color srgbt VRand4D(SSys_M1)]
 										#break
 										#case (2)
-											[GradeCount/GradeMax color rgbt VRand4D(SSys_M1) * GradeMargin + GradeDiff]
+											[GradeCount/GradeMax color srgbt VRand4D(SSys_M1) * GradeMargin + GradeDiff]
 										#break
 									#end
 									#local GradePos = GradePos + rand(SSys_M1) * (1 - GradePos);
@@ -1193,15 +1193,15 @@ sky_sphere
 											#case (0)
 												#local GradeMargin = rand(SSys_M2);
 												#local GradeDiff = (1 - GradeMargin) / 12;
-												[GradePos color rgbt VRand4D(SSys_M3) * GradeDiff + GradeMargin]
-//												[GradePos color rgbt VRand4D(SSys_M3) * GradeMargin + VRand(SSys_M3) * GradeDiff + <0,0,0,rand(SSys_M3)>]
-//												[GradePos color rgbt VRand4D(SSys_M3)]
+												[GradePos color srgbt VRand4D(SSys_M3) * GradeDiff + GradeMargin]
+//												[GradePos color srgbt VRand4D(SSys_M3) * GradeMargin + VRand(SSys_M3) * GradeDiff + <0,0,0,rand(SSys_M3)>]
+//												[GradePos color srgbt VRand4D(SSys_M3)]
 											#break
 											#case (1)
-												[GradePos color rgbt VRand4D(SSys_M3)]
+												[GradePos color srgbt VRand4D(SSys_M3)]
 											#break
 											#case (2)
-												[GradePos color rgbt VRand4D(SSys_M3) * GradeMargin + GradeDiff + <0,0,0,rand(SSys_M3)>]
+												[GradePos color srgbt VRand4D(SSys_M3) * GradeMargin + GradeDiff + <0,0,0,rand(SSys_M3)>]
 											#break
 										#end
 										#local GradePos = rand(SSys_M3) * (1 - GradePos) + GradePos;
@@ -1371,15 +1371,15 @@ sky_sphere
 											#case (0)
 												#local GradeMargin = rand(SSys_M2);
 												#local GradeDiff = (1 - GradeMargin) / 12;
-//												[GradePos color rgbt VRand(SSys_M2) * GradeMargin / 2 + VRand(SSys_M2) * GradeDiff / 2 + (GradeMargin + GradeDiff) / 2]
-												[GradePos color rgbt VRand(SSys_M2) * GradeDiff + GradeMargin]
-//												[GradePos color rgbt VRand(SSys_M2)]
+//												[GradePos color srgbt VRand(SSys_M2) * GradeMargin / 2 + VRand(SSys_M2) * GradeDiff / 2 + (GradeMargin + GradeDiff) / 2]
+												[GradePos color srgbt VRand(SSys_M2) * GradeDiff + GradeMargin]
+//												[GradePos color srgbt VRand(SSys_M2)]
 											#break
 											#case (1)
-												[GradeCount/GradeMax color rgbt VRand(SSys_M2) * GradeMargin + VRand(SSys_M2) * GradeDiff]
+												[GradeCount/GradeMax color srgbt VRand(SSys_M2) * GradeMargin + VRand(SSys_M2) * GradeDiff]
 											#break
 											#case (2)
-												[GradePos color rgbt VRand(SSys_M2) * GradeDiff + GradeMargin]
+												[GradePos color srgbt VRand(SSys_M2) * GradeDiff + GradeMargin]
 											#break
 										#end
 										#local GradePos = rand(SSys_M2) * (1 - GradePos) + GradePos;
@@ -1695,10 +1695,11 @@ sky_sphere
 // CAMERA
 
 #switch (SSys_RenderMode)
+	#declare SSys_CameraAspect = image_width / image_height;
 	// standard perspective view
 	#case (0)
 		#declare SSys_CameraUp = +y;
-		#declare SSys_CameraRight = +x * image_width / image_height;
+		#declare SSys_CameraRight = +x * SSys_CameraAspect;
 		#declare SSys_CameraDirection = SSys_CameraLookAt - SSys_CameraLocation;
 		#declare Camera_Object = camera
 		{
@@ -1711,11 +1712,11 @@ sky_sphere
 	// orthographic spritesheet
 	#case (1)
 		#if (SSys_RenderOnly = 0)
-			#declare SSys_CameraUp = +y * 2 * SSys_NumberSqrt;
-			#declare SSys_CameraRight = +x * 2 * SSys_NumberSqrt * image_width / image_height;
+			#declare SSys_CameraUp		= +y * 2 * SSys_NumberSqrt / SSys_CameraAspect;
+			#declare SSys_CameraRight	= +x * 2 * SSys_NumberSqrt;
 		#else
-			#declare SSys_CameraUp = +y * 2;
-			#declare SSys_CameraRight = +x * 2 * image_width / image_height;
+			#declare SSys_CameraUp		= +y * 2 / SSys_CameraAspect;
+			#declare SSys_CameraRight	= +x * 2;
 		#end
 		#declare SSys_CameraLocation = <0,0,image_width>;
 		#declare SSys_CameraLookAt = <0, 0, 0>;
@@ -1985,7 +1986,7 @@ light_source
 	{
 		1
 		distance SSys_DistancePlanets
-		color rgbt SSys_FogColor
+		color srgbt SSys_FogColor
 	}
 /*
 	media
